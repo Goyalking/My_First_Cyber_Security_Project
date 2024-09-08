@@ -1,0 +1,54 @@
+Vulnerability assessment is the process of identifying weakness in a system by using different types of tools and techniques.
+Here, Now we are going to use the tools and techiques. For Example Port Scanning,Vulnerability Scanning and Web Application Security Testing Etc.
+Here We are usinng www.westernunion.com as a target now firstly we'll scan its port by using Nmap
+We Have Two Ways now first one is directly scan the domain and second one is Firstly we Find out domain's Ip And scann It.
+Domain Scan Is slower Because When We directly scan domain nmap firstly find its ip and than works on ip scan and in second it directly works on ip's ports.
+We Have Several Methods to get ip of any domain For Example :- dig www.example.com , nslookup www.example.com , host www.example.com, ping www.example.com etc.
+So, Here we Go..........
+After Executing Command( nmap -p 21,22,23,25,53,80,110,143,443,445,3306,3389 66.218.161.27 OR nmap -sV -p 21,22,23,25,53,80,110,143,443,445,3306,3389 66.218.161.27
+) . (-sV Stand For Service and version Detetction)
+-sV Flag Helps to get inform about the services running on ports with their versions (its not mandatory for extra information we can use this command)
+OUr Result after the command is :- 
+PORT    STATE        SERVICE        
+21/tcp  open          FTP (File Transfer Protocol)       
+22/tcp  filtered      SSH
+23/tcp  filtered    telnet
+25/tcp  filtered      smtp
+53/tcp  filtered    domain
+80/tcp  open          http
+110/tcp filtered      pop3
+143/tcp filtered      imap
+443/tcp open         https
+445/tcp filtered    microsoft-ds
+3306/tcp filtered   mysql
+3389/tcp filtered   ms-wbt-server
+SO Let me explain You About Evry Port One By One:-
+1. Port 21/tcp (FTP) State: Open:- An open FTP port means the server is accepting connections and can be accessed for file uploads and downloads.(Attacks Like Bruteforce Etc. Possible)
+2. Port 22/tcp (SSH) - Filtered :- It provides a secure channel for logging into remote systems and executing commands.(If port 22 were open, attackers might attempt to guess SSH credentials.)
+3. Port 23/tcp (Telnet) - Filtered:- The "filtered" state here suggests that a firewall or security device is blocking access to this port.It's used for text-based communication with remote systems.
+4. Port 25/tcp (SMTP) - Filtered:- it Is Used For sending email messages.(If it misconfigured,SMTP server could be used to send spam or malicious emails known as open relay attack.)
+5. Port 53/tcp (DNS) - Filtered:-DNS translates domain names into IP addresses. Filtering indicates that it is not directly accessible.(If This Port Was Open And accessible DNS Spoofing Attack Possibles.)
+6. Port 80/tcp (HTTP) - Open:-HTTP protocol IS Used For Transferring Webpages. ( commonly targeted for vulnerabilities such as SQL injection or XSS.)
+7. Port 110/tcp (POP3) - Filtered:-POP3 protocol is used for retrieving email from a server. (Filtering suggests it’s not directly accessible.)
+8. Port 143/tcp (IMAP) - Filtered:-IMAP allows access to email on a remote server.(Filtering indicates restricted access.)
+9. Port 443/tcp (HTTPS) - Open:-HTTPS encrypts data transmitted between the client and server.(If HTTPS NOt configured properly than MITM attack is Possible.)
+10.Port 445/tcp (SMB) - Filtered:-SMB used for file sharing and network communication (if it were accessible than Attack like Ransomware are Possible.)
+11.Port 3306/tcp (MySQL) - Filtered:-MySQL is used for database management. Filtering suggests it is not directly accessible.(If Accessible SQL injection and database exploits Possible.)
+12.Port 3389/tcp (RDP) - Filtered:-RDP is used for remote desktop access. Filtering indicates restricted access.
+
+                                                                    {{{{{Conclusion}}}}}
+1.Open Ports (21, 80, 443): These ports are accessible and could be targeted for various attacks such as credential guessing, web vulnerabilities, and SSL/TLS exploits.
+2.Filtered Ports (22, 23, 25, 53, 110, 143, 445, 3306, 3389): These ports are protected or blocked, reducing direct exposure to attacks. 
+However, if misconfigured or if firewall rules are not properly managed, there could still be risks.
+Ensuring the above Services are properly configured and use of strong authentication mechanisms and regular security assessments can help to protect websites from potential threats.
+
+                                                                     {{{{{Disclaimer}}}}}
+The information provided in this project is for educational and informational purposes only.
+The vulnerability assessment described involves the use of tools and techniques such as port scanning, vulnerability scanning etc. on the specified domain.
+This project is conducted in a controlled environment with explicit permission from the relevant parties.
+Target Picked From BugCrowd just for hands on training Purpose.
+
+ 
+
+
+

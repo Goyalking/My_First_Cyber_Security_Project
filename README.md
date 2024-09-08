@@ -1,5 +1,5 @@
-# My_First_Cyber_Security_Project
-# First Cybersecurity Project
+# My_Cyber_Security_Project
+# Cybersecurity Project NO.1
 
 ## Introduction
 This is my first cybersecurity project where I demonstrate basic vulnerability assessment techniques.
